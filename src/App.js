@@ -1,24 +1,30 @@
-import React, { useState } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
-import Details from "./Details";
-import SearchParams from "./SearchParams";
-import ThemeContext from "./ThemeContext";
+import { Provider } from 'react-redux'
+import store from './store'
+import NavBar from "./NavBar";
+
+const Details = lazy(() => import('./Details'))
+const SearchParams = lazy(() => import('./SearchParams'))
 
 const App = () => {
-  const theme = useState("darkblue");
+
   return (
-    <ThemeContext.Provider value={theme}>
+    <Provider store={store}>
+
       <div>
-        <header>
-          <Link to="/">Adopt Me!</Link>
-        </header>
-        <Router>
-          <SearchParams path="/" />
-          <Details path="/details/:id" />
-        </Router>
+        <NavBar />
+        <Suspense fallback={<h1>Loading Rounte...</h1>}>
+
+          <Router>
+            <SearchParams path="/" />
+            <Details path="/details/:id" />
+          </Router>
+        </Suspense>
       </div>
-    </ThemeContext.Provider>
+    </Provider >
+
   );
 };
 
