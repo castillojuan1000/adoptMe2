@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import { Provider } from 'react-redux'
 import store from './store'
 import NavBar from "./NavBar";
+
 
 const Details = lazy(() => import('./Details'))
 const SearchParams = lazy(() => import('./SearchParams'))
@@ -20,7 +21,7 @@ const App = () => {
           <Router>
             <SearchParams path="/" />
             <Details path="/details/:id" />
-          </Router>
+          </Router >
         </Suspense>
       </div>
     </Provider >
@@ -28,4 +29,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))
+// ReactDOM.render(<HashRouter basename="/"><App /></HashRouter>, document.getElementById('root'));
