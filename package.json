@@ -8,6 +8,7 @@
     "@emotion/core": "^10.0.28",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "gh-pages": "^2.2.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^7.2.0",
@@ -33,6 +34,7 @@
     "prettier": "^1.16.1",
     "react-testing-library": "^8.0.1"
   },
+  "homepage": "https://castillojuan1000.github.io/adoptMe2",
   "scripts": {
     "clear-build-cache": "rm -rf .cache/ dist/",
     "dev": "parcel src/index.html",
